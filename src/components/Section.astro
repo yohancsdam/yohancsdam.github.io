@@ -1,0 +1,36 @@
+---
+// src/components/Section.astro
+const { id, className = "", contain = true } = Astro.props;
+---
+
+<section id={id} class={`section ${className}`}>
+  <div class={contain ? "section-container" : ""}>
+    <slot />
+  </div>
+</section>
+
+<style>
+  /* Base section styles */
+  .section {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+  }
+
+  /* Responsive padding */
+  @media (min-width: 768px) {
+    .section-container {
+      padding: 4rem 5%;
+    }
+  }
+
+  /* Optional: Add vertical rhythm */
+  .section + .section {
+    padding-top: 1rem;
+  }
+</style>

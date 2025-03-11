@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/hero.astro';
 import Grid from '../components/Grid.astro';
 import GridItem from '../components/GridItem.astro';
+import Section from '../components/Section.astro';
 const menuItems = [
   {
     title: "Pasta & Spaghetti",
@@ -25,23 +26,25 @@ const menuItems = [
 ---
 
 <Layout>
-    <Hero>
-        <div slot="left">
-          <h1 style="font-size: clamp(1.5rem, 4vw, 2.5rem)">Modern Web Solutions</h1>
-          <p style="font-size: clamp(1rem, 2vw, 1.25rem)">Build faster with our intuitive platform</p>
-          <button>Start Free nut</button>
-        </div>
-      
-        <div slot="right">
-          <img 
-            src="/logo.svg" 
-            alt="Platform interface showcase" 
-            loading="lazy"
-            width="200" 
-            height="125"
-          >
-        </div>
-    </Hero>
+    <Section id="hero" contain={true}>
+        <Hero>
+            <div slot="left">
+            <h1>Modern Web Solutions</h1>
+            <p>Build faster with our intuitive platform</p>
+            <button>Start Free nut</button>
+            </div>
+        
+            <div slot="right">
+            <img 
+                src="/logo.svg" 
+                alt="Platform interface showcase" 
+                loading="lazy"
+                width="200" 
+                height="125"
+            >
+            </div>
+        </Hero>
+    </Section>
     <Grid>
         {menuItems.map(item => (
             <GridItem>

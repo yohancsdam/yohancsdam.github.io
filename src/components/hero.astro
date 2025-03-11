@@ -3,46 +3,43 @@
 ---
 
 <div class="hero">
-  <div class="hero-content">
+  <div class="hero-column">
     <slot name="left" />
   </div>
-  <div class="hero-content">
+  <div class="hero-column">
     <slot name="right" />
   </div>
 </div>
 
 <style>
-  /* Base mobile styles */
+  /* Core grid functionality */
   .hero {
     display: grid;
     gap: 1rem;
-    padding: 1.5rem 5%;
-    margin-top: 4rem; /* Add top margin to account for the fixed header */
+    min-height: 60vh;
   }
 
-  .hero-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Optional: Center text within the content */
-  }
-
-  /* Desktop styles */
+  /* Desktop layout */
   @media (min-width: 768px) {
     .hero {
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: clamp(1rem, 4vw, 3rem);
-      padding: clamp(2rem, 6vw, 4rem) 5%;
-      margin-top: 4rem; /* Add top margin to account for the fixed header */
     }
   }
 
-  /* Responsive image handling */
+  /* Image handling */
   .hero img {
     width: 100%;
     height: auto;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Content alignment */
+  .hero-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 </style>
