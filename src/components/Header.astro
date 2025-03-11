@@ -1,0 +1,164 @@
+---
+// src/components/Header.astro
+---
+
+<header class="site-header">
+  <div class="header-container">
+    <a href="/" class="logo">Bistro</a>
+    
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </label>
+
+    <nav class="site-nav">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/menu" class="nav-link">Menu</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Base header styles */
+  .site-header {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+  }
+
+  /* Hamburger menu styles */
+  .nav-toggle {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.2s;
+  }
+
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s;
+  }
+
+  .hamburger-inner::before {
+    top: -8px;
+  }
+
+  .hamburger-inner::after {
+    top: 8px;
+  }
+
+  /* Navigation styles */
+  .site-nav {
+    display: block;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: #007bff;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .site-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-toggle:checked ~ .site-nav {
+      max-height: 500px;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f8f9fa;
+    }
+  }
+</style>
