@@ -1,0 +1,25 @@
+---
+// src/components/Grid.astro
+---
+
+<div class="grid-container">
+    <slot />
+  </div>
+  
+  <style>
+    .grid-container {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: 2rem 5%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+  
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+    }
+  </style>

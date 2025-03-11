@@ -3,9 +3,25 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/hero.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Grid from '../components/Grid.astro';
+import GridItem from '../components/GridItem.astro';
+const menuItems = [
+  {
+    title: "Pasta & Spaghetti",
+    image: '/logo.svg',
+    description: "Authentic Italian pasta with fresh ingredients..."
+  },
+  {
+    title: "Seafood Special",
+    image: '/logo.svg',
+    description: "Daily caught seafood prepared with Mediterranean flavors..."
+  },
+  {
+    title: "Classic Spaghetti",
+    image: '/logo.svg',
+    description: "Traditional recipe passed down through generations..."
+  }
+];
 ---
 
 <Layout>
@@ -25,5 +41,20 @@ import Hero from '../components/hero.astro';
             height="125"
           >
         </div>
-      </Hero>
+    </Hero>
+    <Grid>
+        {menuItems.map(item => (
+            <GridItem>
+                <img 
+                src={item.image} 
+                alt={item.title} 
+                width="100" 
+                height="75"
+                loading="lazy"
+                />
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+            </GridItem>
+        ))}
+    </Grid>
 </Layout>
