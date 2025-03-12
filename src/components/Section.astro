@@ -29,8 +29,17 @@ const { id, className = "", contain = true } = Astro.props;
     }
   }
 
-  /* Optional: Add vertical rhythm */
+  /* Optional: Add vertical rhythm
   .section + .section {
     padding-top: 1rem;
+  }  
+   */
+  /* Center content in the hero section */
+  #hero .section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh; /* Adjust as needed */
   }
 </style>
